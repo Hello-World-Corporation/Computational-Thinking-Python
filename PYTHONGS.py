@@ -44,23 +44,43 @@ def historico_talhao():
         print("Talhão não encontrado.")
 
 #Diferentiated Problem Solving- Função que gera um gráfico
-def gerar_relatorio():
-    print("\n=== Relatório da Fazenda ===")
-    for talhao, dados in talhoes.items():
-        media_u = sum(dados["umidade"]) / len(dados["umidade"])
-        print(f"{talhao} - Média Umidade: {media_u:.1f}%")
+    # função para calcular a umidade
+def calcular_umidade(U0, k, t):
+    return U0 * np.exp(-k * t)
 
-    # Gráfico simples
-    plt.figure(figsize=(8, 5))
-    plt.plot(talhoes["Talhao_01"]["umidade"], label="Talhao_01", marker='o')
-    plt.plot(talhoes["Talhao_02"]["umidade"], label="Talhao_02", marker='o')
-    plt.title("Evolução da Umidade do Solo")
-    plt.xlabel("Leituras")
+
+def verificar_umidade(umidade_final):
+    if umidade_final < 30:
+        print("🚨 Alerta: Solo em nível crítico de umidade.")
+    else:
+        print("✅ Solo em condição adequada.")
+
+
+def gerar_grafico(t, U):
+    plt.figure(figsize=(10, 5))
+    plt.plot(t, U, color='green', label="Umidade do Solo")
+    plt.axhline(y=30, color='red', linestyle='--', label="Nível Crítico (30%)")
+    plt.title("Perda de Umidade do Solo ao Longo do Tempo")
+    plt.xlabel("Tempo (horas)")
     plt.ylabel("Umidade (%)")
-    plt.legend()
     plt.grid(True)
+    plt.legend()
     plt.show()
 
+
+def modelagem_matematica():
+    print("\n=== Modelagem Matemática - Decaimento da Umidade ===")
+    U0 = 100  # umidade inicial
+    k = 0.15  # taxa de evaporação
+    t = np.linspace(0, 24, 100)  # 24 horas
+
+    U = calcular_umidade(U0, k, t)
+    umidade_final = U[-1]
+
+    print(f"Umidade inicial: {U0}%")
+    print(f"Umidade após 24h: {umidade_final:.2f}%")
+    verificar_umidade(umidade_final)
+    gerar_grafico(t, U)
 #Função que exibe o menu
 def menu():
     while True:
@@ -84,7 +104,7 @@ def menu():
         elif op == "3":
             historico_talhao()
         elif op == "4":
-            gerar_relatorio()
+            modelagem_matematica()
         elif op == "5":
             print("\nSimulando condição de seca...")
             for i in range(5, 0, -1):
@@ -98,3 +118,10 @@ def menu():
             print("Opção inválida!")
 
 menu()
+
+
+#Enzo Palumbo RM569171
+#Jonathan Josué RM569810
+#Murilo Serrano RM569296
+#Nicolas Prestelo RM570785
+#Kaique Moura RM572345
