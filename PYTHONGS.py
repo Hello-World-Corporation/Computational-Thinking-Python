@@ -85,7 +85,7 @@ def modelagem_matematica():
 def menu():
     while True:
         print("\n" + "=" * 40)
-        print("              MENU - AGROSAT")
+        print("              MENU - SpaceFarm")
         print("=" * 40)
         print("1. Descrição do Projeto")
         print("2. Monitoramento em Tempo Real")
