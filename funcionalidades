@@ -1,0 +1,59 @@
+1. Estrutura de Dados (Simulação)
+
+Utiliza um dicionário chamado talhoes para armazenar dados fictícios de dois talhões agrícolas.
+Cada talhão contém listas de valores de umidade do solo e temperatura.
+Serve como base de dados local para demonstração (simulando o que viria de sensores IoT + satélite).
+
+2. Descrição do Projeto (descricao_projeto())
+
+Exibe uma introdução clara do sistema.
+Nome apresentado: SpaceFarm - Monitoramento via Satélites.
+Conceito: Integra dados de satélites (orbitais) com sensores locais para agricultura de precisão.
+Objetivo principal: reduzir perdas e otimizar o uso de recursos hídricos (irrigação inteligente).
+
+3. Monitoramento em Tempo Real (monitoramento_tempo_real())
+
+Simula leituras contínuas de sensores.
+Gera valores de umidade (entre 30% e 69%) e temperatura usando time.time() (sem precisar da biblioteca random).
+Mostra 3 leituras em sequência com intervalo de 1 segundo.
+Alerta automático: se a umidade ficar abaixo de 45%, exibe aviso crítico recomendando irrigação.
+Funcionalidade pensada para demonstrar monitoramento contínuo (como se estivesse conectado a sensores/Arduino).
+
+4. Histórico por Talhão (historico_talhao())
+
+Permite consultar o histórico de um talhão específico (Talhao_01 ou Talhao_02).
+Exibe todas as leituras armazenadas de umidade e temperatura.
+Calcula e mostra a média de umidade do talhão.
+Validação: avisa se o talhão digitado não existir.
+
+5. Relatório Completo com Gráfico (gerar_relatorio())
+
+Calcula e exibe a média de umidade de todos os talhões.
+Gera um gráfico visual usando Matplotlib mostrando a evolução da umidade dos dois talhões ao longo das leituras.
+O gráfico inclui:
+Título
+Legenda
+Grid
+Marcadores nos pontos
+
+Funcionalidade de visualização de dados (dashboard simples).
+
+6. Simulação de Alerta de Seca (opção 5 do menu)
+
+Demonstra um cenário crítico de estiagem.
+Faz uma contagem regressiva simulando a queda da umidade.
+Finaliza com um alerta crítico de risco alto de perda da lavoura.
+Serve para mostrar como o sistema reagiria em condições extremas.
+
+7. Menu Interativo (menu())
+
+Loop principal que permite ao usuário navegar entre todas as funcionalidades.
+Opções disponíveis:
+1 → Descrição do projeto
+2 → Monitoramento em tempo real
+3 → Histórico por talhão
+4 → Relatório completo + gráfico
+5 → Simular alerta de seca
+0 → Sair do sistema
+
+Tratamento de opção inválida.
