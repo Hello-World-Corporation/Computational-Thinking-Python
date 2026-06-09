@@ -1,0 +1,14 @@
+SpaceFarm (também chamado de AGROSAT) é um sistema de agricultura
+ de precisão que simula a integração entre dados orbitais 
+ (satélites) e sensores locais para monitorar as condições do solo
+ em tempo real.
+O projeto tem como objetivo principal reduzir perdas na lavoura e
+ otimizar o uso de recursos hídricos, fornecendo informações que 
+ permitem ao produtor tomar decisões mais assertivas sobre irrigação.
+
+Conceito:
+O sistema simula uma fazenda dividida em talhões, onde são 
+coletados dados de umidade do solo e temperatura. Como não há 
+conexão física com Arduino ou sensores reais, os valores são simulados 
+de forma inteligente para demonstrar o funcionamento do sistema 
+da forma mais realista possível.
